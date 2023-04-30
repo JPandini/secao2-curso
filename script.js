@@ -169,3 +169,45 @@ console.log(data.getFullYear());
 console.log(data.getDate()+'/'+(data.getMonth()+1)+'/'+data.getFullYear())
 */
 
+var peso;
+var altura;
+var imc;
+var resultado;
+
+function Calcular(event){
+  event.preventDefault();
+
+  peso = document.getElementById('peso').value;
+  altura = document.getElementById('altura').value;
+
+  imc = peso / altura**2
+
+  resultado = document.getElementById('resultado');
+
+  if(imc < 17){ 
+    //resultado = document.getElementById('resultado');
+    resultado.innerHTML = '<br/> Seu resultado foi: ' +imc.toFixed(2)+ '<br/> Cuidado, você está muito abaixo do peso!'
+  }
+  else if(imc > 17 && imc <= 18.49){
+    resultado.innerHTML = '<br/> Seu resultado foi: ' +imc.toFixed(2)+ '<br/> Cuidado, você está abaixo do peso!'
+  }
+  else if(imc > 18.5 && imc <= 24.99){
+    resultado.innerHTML = '<br/> Seu resultado foi: ' +imc.toFixed(2)+ '<br/> Você está no peso ideal, continue assim!'
+  }
+  else if(imc > 25 && imc <= 29.99){
+    resultado.innerHTML = '<br/> Seu resultado foi: ' +imc.toFixed(2)+ '<br/> Você está acima do peso!'
+  }
+  else if(imc >= 30){
+    resultado.innerHTML = '<br/> Seu resultado foi: ' +imc.toFixed(2)+ '<br/> Você está obeso!'
+  }
+  else {
+    resultado.innerHTML = '<br/> Tente novamente!'
+  }
+
+  document.getElementById('peso').value = '';
+  document.getElementById('altura').value = '';
+
+
+}
+
+
